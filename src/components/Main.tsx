@@ -1,7 +1,31 @@
-import React from "react";
-import data from "../data.json"
-const Main = () => {
-    console.log(data);
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+
+interface Data {
+  id: number;
+  name: string;
+  desc: string;
+  years: { score: number[][] } | any;
+}
+
+function Main(): JSX.Element {
+  const [data, setData] = useState<Array<Data>>();
+  useEffect(() => {
+    if (!data) loader();
+  }, []);
+
+  async function loader() {
+    try {
+      await axios.get("data.json").then((res) => {
+        // console.log(res.data.data);
+        setData(res.data.data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <table className="table">
@@ -77,11 +101,24 @@ const Main = () => {
           </tr>
         </thead>
         <tbody>
-          <tr></tr>
+          {data &&
+            data?.map((value: Data, index: number) => {
+              return (
+                <tr key={index}>
+                  <td>{value?.id}</td>
+                  <td>{value?.name}</td>
+                  <td>{value.years.score[0]}</td>
+                  <td>{value.years.score[1][1]}</td>
+                  <td>{value.years.score[2]}</td>
+                  <td>{value.years.score[3]}</td>
+                  <td>{value.years.score[4]}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </>
   );
-};
+}
 
 export default Main;
