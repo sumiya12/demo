@@ -1,0 +1,23 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"test",
+            "score":1
+        }, {
+            "id":2,
+            "name":"test2",
+            "score":4
+        },
+        {
+            "id":1,
+            "name":"test3",
+            "score":3
+        },
+        {
+            "id":1,
+            "name":"test4",
+            "score":1
+        }
+    ]
+}

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState ,useEffect} from "react";
 import axios from "axios";
 
 interface Data {
@@ -11,6 +10,7 @@ interface Data {
 
 function Main(): JSX.Element {
   const [data, setData] = useState<Array<Data>>();
+  
   useEffect(() => {
     if (!data) loader();
   }, []);

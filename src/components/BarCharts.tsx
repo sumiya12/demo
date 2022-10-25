@@ -24,6 +24,8 @@ const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
     const labels: string[] = [];
     persons.forEach((person) => {
       data.push(person.score);
+      console.log(person);
+      
       labels.push(person.name);
     });
 
@@ -57,7 +59,7 @@ const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
 
   return (
     <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-      <Line type="line" data={generateChartData()} options={options} />
+      <Line  data={generateChartData()} options={options} />
     </div>
   );
 };
