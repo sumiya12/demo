@@ -1,11 +1,15 @@
 import React from "react";
-import { ChartData } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { ChartData,CategoryScale } from "chart.js";
+import { Chart, registerables } from 'chart.js';
+import { Line } from "react-chartjs-2";
 import { PersonData } from "../types";
+Chart.register(...registerables);
+
 
 interface Props {
-    person: PersonData[];
-  }
+  persons: PersonData[];
+};
+
 const options = {
   plugins: {
     legend: {
@@ -14,12 +18,12 @@ const options = {
   },
 };
 
-const BarCharts:React.FunctionComponent<Props> = ({ person }) => {
+const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
+    
   const generateChartData = (): ChartData => {
     const data: number[] = [];
     const labels: string[] = [];
-
-    person.forEach((person) => {
+    persons.forEach((person) => {
       data.push(person.score);
       labels.push(person.name);
     });
@@ -28,7 +32,7 @@ const BarCharts:React.FunctionComponent<Props> = ({ person }) => {
       labels,
       datasets: [
         {
-          label: "score",
+          label: "name",
           data,
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
@@ -53,11 +57,10 @@ const BarCharts:React.FunctionComponent<Props> = ({ person }) => {
   };
 
   return (
-    <div>
-      <Bar type="bar" data={generateChartData()} options={options} />
+    <div style={{maxWidth:"700px", margin:"0 auto"}}>
+      <Line type="line" data={generateChartData()} options={options} />
     </div>
   );
 };
 
 export default BarCharts;
-
