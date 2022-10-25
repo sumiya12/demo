@@ -1,14 +1,14 @@
 import React from "react";
-import { ChartData,CategoryScale } from "chart.js";
-import { Chart, registerables } from 'chart.js';
+import { ChartData } from "chart.js";
+import { Chart, registerables, LineElement ,ScatterDataPoint ,BubbleDataPoint} from "chart.js";
 import { Line } from "react-chartjs-2";
 import { PersonData } from "../types";
-Chart.register(...registerables);
 
+Chart.register(...registerables, LineElement);
 
 interface Props {
   persons: PersonData[];
-};
+}
 
 const options = {
   plugins: {
@@ -19,8 +19,7 @@ const options = {
 };
 
 const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
-    
-  const generateChartData = (): ChartData => {
+  const generateChartData = (): ChartData<"line", (number | ScatterDataPoint | BubbleDataPoint | null)[], unknown> => {
     const data: number[] = [];
     const labels: string[] = [];
     persons.forEach((person) => {
@@ -57,7 +56,7 @@ const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
   };
 
   return (
-    <div style={{maxWidth:"700px", margin:"0 auto"}}>
+    <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
       <Line type="line" data={generateChartData()} options={options} />
     </div>
   );
