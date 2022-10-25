@@ -43,6 +43,14 @@
   border-style: solid;
   padding: 8px;
 }
+.tbody tr td {
+  border-width: 0.5px;
+  border-color: gray;
+  border-style: solid;
+  padding: 8px;
+  vertical-align:middle;
+  
+}
 .head{
   color: white;
   background-color: rgb(70, 142, 209);

@@ -1,8 +1,10 @@
 import "./App.css";
-import Main from "./components/Main";
+import Charts from "./components/Charts";
+
+
 
 function App() {
-  return <div><Main/></div>;
+  return <div><Charts/></div>;
 }
 
 export default App;

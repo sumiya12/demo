@@ -18,7 +18,7 @@ function Main(): JSX.Element {
   async function loader() {
     try {
       await axios.get("data.json").then((res) => {
-        // console.log(res.data.data);
+        console.log(res.data.data);
         setData(res.data.data);
       });
     } catch (error) {
@@ -100,19 +100,39 @@ function Main(): JSX.Element {
             <th>6</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="tbody">
           {data &&
             data?.map((value: Data, index: number) => {
               return (
-                <tr key={index}>
-                  <td>{value?.id}</td>
-                  <td>{value?.name}</td>
-                  <td>{value.years.score[0]}</td>
-                  <td>{value.years.score[1][1]}</td>
-                  <td>{value.years.score[2]}</td>
-                  <td>{value.years.score[3]}</td>
-                  <td>{value.years.score[4]}</td>
-                </tr>
+              
+                  <tr key={index}  className='tr'>
+                    <td >{value?.id}</td>
+                    <td >{value?.name}</td>
+                    <td>{`${value.years.Q4.score[0]}`}</td>
+                    <td>{value.years.Q4.score[1]}</td>
+                    <td>{value.years.Q4.score[2]}</td>
+                    <td>{value.years.Q4.score[3]}</td>
+                    <td>{value.years.Q4.score[4]}</td>
+                    <td>{value.years.Q1.score[0]}</td>
+                    <td>{value.years.Q1.score[1]}</td>
+                    <td>{value.years.Q1.score[2]}</td>
+                    <td>{value.years.Q1.score[3]}</td>
+                    <td>{value.years.Q1.score[4]}</td>
+                    <td>{value.years.Q2.score[0]}</td>
+                    <td>{value.years.Q2.score[1]}</td>
+                    <td>{value.years.Q2.score[2]}</td>
+                    <td>{value.years.Q2.score[3]}</td>
+                    <td>{value.years.Q2.score[4]}</td>
+                    <td>{value.years.Q3.score[0]}</td>
+                    <td>{value.years.Q3.score[1]}</td>
+                    <td>{value.years.Q3.score[2]}</td>
+                    <td>{value.years.Q3.score[3]}</td>
+                    <td>{value.years.Q3.score[4]}</td>
+                    <td>{value.years.Q3.score[5]}</td>
+                    <td>{value.years.Q3.score[6]}</td>
+                  </tr>
+                 
+           
               );
             })}
         </tbody>
