@@ -1,7 +1,13 @@
 export type PersonData = {
-    score: number;
-    id: number;
-    name: string;
-    desc: string;
-    years: { score: number[][] } | any;
-  };
+  id: number;
+  name: string;
+  color:string;
+  desc: string;
+  scores: Score[];
+};
+export interface Score {
+    sprint: string;
+    quarter: string;
+    date: string;
+    point: number;
+  }
