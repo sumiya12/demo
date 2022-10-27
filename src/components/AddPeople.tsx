@@ -1,9 +1,9 @@
-import React from "react";
-import fs from "fs";
-
+import axios from "axios";
+import React, { useState } from "react";
+import { PersonData } from "../types";
 type Props = {};
 
-const AddPeople = (props: Props) => {
+const AddPeople = ({ setData, datas }: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -18,7 +18,7 @@ const AddPeople = (props: Props) => {
     const sprint = data.get("sprint");
     const point = data.get("point");
 
-    const people = {
+    const people = JSON.stringify({
       id: id,
       name: name,
       color: color,
@@ -31,23 +31,8 @@ const AddPeople = (props: Props) => {
           point: point,
         },
       ],
-    };
-    console.log(people);
-    
-
-    // fs.readFile("./test1.json", "utf-8", (err: any, data: any) => {
-    //   let arr = [];
-    //   arr = JSON.parse(data);
-    //   console.log(arr);
-    //   if (err) {
-    //     console.log(err);
-    //     return;
-    //   } else {
-    //     arr = arr.map((e: any) => {
-    //       console.log(e);
-    //     });
-    //   }
-    // });
+    });
+    setData([...datas, people]);
   };
 
   return (

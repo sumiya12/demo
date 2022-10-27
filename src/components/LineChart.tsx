@@ -32,7 +32,7 @@ const LineChart: React.FunctionComponent<Props> = ({ persons }) => {
   > => {
     const labels: string[] = [];
     const dataSets: any[] = [];
-    console.log(dataSets);
+   
     persons[0].scores.forEach((each: Score) => {
         return labels.push(
           each.date + " Quarter " + each.quarter + " Sprint " + each.sprint
