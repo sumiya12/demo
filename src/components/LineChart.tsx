@@ -13,7 +13,7 @@ import { PersonData, Score } from "../types";
 Chart.register(...registerables, LineElement);
 
 interface Props {
-  persons: PersonData[];
+  datas: PersonData[];
 }
 
 const options = {
@@ -24,7 +24,7 @@ const options = {
   },
 };
 
-const LineChart: React.FunctionComponent<Props> = ({ persons }) => {
+const LineChart: React.FunctionComponent<Props> = ({ datas }) => {
   const generateChartData = (): ChartData<
     "line",
     (number | ScatterDataPoint | BubbleDataPoint | null)[],
@@ -33,12 +33,12 @@ const LineChart: React.FunctionComponent<Props> = ({ persons }) => {
     const labels: string[] = [];
     const dataSets: any[] = [];
    
-    persons[0].scores.forEach((each: Score) => {
+    datas[0].scores.forEach((each: Score) => {
         return labels.push(
           each.date + " Quarter " + each.quarter + " Sprint " + each.sprint
         );
       });
-    persons.forEach((person) => {
+      datas.forEach((person) => {
       const data: number[] = [];
     
       person.scores.forEach((score: Score) => {

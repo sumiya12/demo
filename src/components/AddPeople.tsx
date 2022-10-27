@@ -18,7 +18,7 @@ const AddPeople = ({ setData, datas }: any) => {
     const sprint = data.get("sprint");
     const point = data.get("point");
 
-    const people = JSON.stringify({
+    const people = {
       id: id,
       name: name,
       color: color,
@@ -31,8 +31,9 @@ const AddPeople = ({ setData, datas }: any) => {
           point: point,
         },
       ],
-    });
+    };
     setData([...datas, people]);
+    // window.location.reload()
   };
 
   return (
