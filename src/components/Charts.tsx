@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import BarCharts from "./BarCharts";
+import BarCharts from "./LineChart";
 import { PersonData } from "../types";
 
 const Charts: React.FunctionComponent = () => {

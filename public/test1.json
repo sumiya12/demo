@@ -404,7 +404,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Erdenetulga",
       "desc": "Half",
       "color": "#eda05e",
@@ -520,7 +520,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 5,
       "name": "Munkh",
       "desc": "Half",
       "color": "#28a176",
@@ -601,3 +601,4 @@
     }
   ]
 }
+

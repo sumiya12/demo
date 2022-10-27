@@ -24,7 +24,7 @@ const options = {
   },
 };
 
-const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
+const LineChart: React.FunctionComponent<Props> = ({ persons }) => {
   const generateChartData = (): ChartData<
     "line",
     (number | ScatterDataPoint | BubbleDataPoint | null)[],
@@ -50,7 +50,7 @@ const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
         backgroundColor: person.color,
         borderColor: person.color,
         borderWidth: 2,
-        tension: 0.4,
+        tension: 0.3,
       });
     });
     return {
@@ -74,4 +74,4 @@ const BarCharts: React.FunctionComponent<Props> = ({ persons }) => {
   );
 };
 
-export default BarCharts;
+export default LineChart;
