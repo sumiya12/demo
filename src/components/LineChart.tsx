@@ -66,12 +66,15 @@ const LineChart: React.FunctionComponent<Props> = ({ datas }) => {
       style={{
         display: "flex",
         alignItems: "center",
-        height: "100vh",
-        maxWidth: "1200px",
-        margin: "0 auto",
+        justifyContent:"center",
+        height: "100%",
+        width: "80%",
+        flexDirection:"column",
+        // margin: "auto"
       }}
-    >
-      <Line data={generateChartData()} options={options} />
+    ><h1 style={{paddingTop:"20px"}} >Chart</h1>
+      <Line style={{height: "70%",
+        width: "90%",}} data={generateChartData()} options={options} />
     </div>
   );
 };

@@ -1,14 +1,12 @@
 import React from "react";
 import { PersonData, Score } from "../types";
 
-
 interface Props {
   datas: PersonData[];
   onFinish: (newDatas: PersonData[]) => void;
 }
 
 const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
-
   const newPersonScore: Score[] = [];
   datas[0].scores.forEach((score) => {
     newPersonScore.push({
@@ -22,23 +20,20 @@ const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
     e.preventDefault();
     newPersonScore[newPersonScore.length - 1].point = e.target.point.value;
     const id = e.target.id.value;
-    const sprint = e.target.sprint.value
-    const currentPerson =  datas?.find((data) => {
+    const sprint = e.target.sprint.value;
+    const currentPerson = datas?.find((data) => {
       return data.id.toString() === id;
     });
 
-    const totalSprint =  currentPerson?.scores?.find((sprintEach)=>{
-       return sprintEach.sprint===sprint
-     })
-     console.log(typeof sprint,typeof  totalSprint,  sprint === totalSprint);
-     
-
-    
+    const totalSprint = currentPerson?.scores?.find((sprintEach) => {
+      return sprintEach.sprint === sprint;
+    });
+    console.log(typeof sprint, typeof totalSprint, sprint === totalSprint);
 
     if (currentPerson != null) {
       const lastSprintResult =
         currentPerson.scores[currentPerson.scores.length - 1];
- 
+
       currentPerson.scores.push({
         sprint: lastSprintResult.sprint + 1,
         quarter: lastSprintResult.quarter + 1,
@@ -72,18 +67,12 @@ const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
     <>
       <div
         style={{
-          display: "flex",
-          maxWidth: "300px",
-          margin: "0 auto",
           border: "1px solid gray",
-          alignItems: "center",
-          height: "100%",
-          justifyContent: "center",
           borderRadius: "10px",
           boxShadow: "1px 1px gray",
-          padding: "20px",
+          padding: "20px",alignItems: "center",display: "flex",flexDirection: "column"
         }}
-      >
+      ><h1>Add people</h1>
         <form
           onSubmit={handleSubmit}
           action="submit"
