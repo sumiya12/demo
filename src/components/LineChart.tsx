@@ -59,7 +59,7 @@ const LineChart: React.FunctionComponent<Props> = ({ datas }) => {
       datasets: dataSets,
     };
   };
-  console.log(datas);
+  // console.log(datas);
 
   return (
     <div

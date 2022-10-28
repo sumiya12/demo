@@ -1,4 +1,5 @@
 export type PersonData = {
+
   id: number;
   name: string;
   color:string;

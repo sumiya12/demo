@@ -8,6 +8,7 @@ interface Props {
 
 const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
   const newPersonScore: Score[] = [];
+  const maxPersonLength: Score[] = [];
   datas[0].scores.forEach((score) => {
     newPersonScore.push({
       sprint: score.sprint,
@@ -16,19 +17,35 @@ const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
       point: null,
     });
   });
+
+        // let newData = new Array(...datas)
+        // let newS = new Array(...newData)
+        // console.log(newS);
+        
+        // newS.sort((a,b)=>{
+        //     return a.sprint < b.sprint ? 1 : -1
+        // })
+
+        // console.log(newData);
+        
+
+//   const sortName = () => {
+//     let newData = new Array(...players);
+//     newData.sort((a, b) => {
+//       return a.name < b.name ? 1 : -1;
+//     });
+//     setPlayers(newData);
+//   };
+    
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     newPersonScore[newPersonScore.length - 1].point = e.target.point.value;
+
     const id = e.target.id.value;
     const sprint = e.target.sprint.value;
     const currentPerson = datas?.find((data) => {
       return data.id.toString() === id;
     });
-
-    const totalSprint = currentPerson?.scores?.find((sprintEach) => {
-      return sprintEach.sprint === sprint;
-    });
-    console.log(typeof sprint, typeof totalSprint, sprint === totalSprint);
 
     if (currentPerson != null) {
       const lastSprintResult =
@@ -70,9 +87,13 @@ const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
           border: "1px solid gray",
           borderRadius: "10px",
           boxShadow: "1px 1px gray",
-          padding: "20px",alignItems: "center",display: "flex",flexDirection: "column"
+          padding: "20px",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
         }}
-      ><h1>Add people</h1>
+      >
+        <h1>Add people</h1>
         <form
           onSubmit={handleSubmit}
           action="submit"
