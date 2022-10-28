@@ -8,7 +8,7 @@ interface Props {
 
 const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
   const newPersonScore: Score[] = [];
-  const maxPersonLength: Score[] = [];
+  const maxPersonLength: PersonData[] = [];
   datas[0].scores.forEach((score) => {
     newPersonScore.push({
       sprint: score.sprint,
@@ -18,25 +18,34 @@ const AddPeople: React.FunctionComponent<Props> = ({ datas, onFinish }) => {
     });
   });
 
-        // let newData = new Array(...datas)
-        // let newS = new Array(...newData)
-        // console.log(newS);
-        
-        // newS.sort((a,b)=>{
-        //     return a.sprint < b.sprint ? 1 : -1
-        // })
+  if (datas[0].scores.length) {
+    datas.find((each) => {
+      return maxPersonLength.push(
+        each.scores.length === datas[0].scores.length ? each : null
+      );
+    });
+  }
 
-        // console.log(newData);
-        
+  console.log(maxPersonLength);
 
-//   const sortName = () => {
-//     let newData = new Array(...players);
-//     newData.sort((a, b) => {
-//       return a.name < b.name ? 1 : -1;
-//     });
-//     setPlayers(newData);
-//   };
-    
+  // let newData = new Array(...datas)
+  // let newS = new Array(...newData)
+  // console.log(newS);
+
+  // newS.sort((a,b)=>{
+  //     return a.sprint < b.sprint ? 1 : -1
+  // })
+
+  // console.log(newData);
+
+  //   const sortName = () => {
+  //     let newData = new Array(...players);
+  //     newData.sort((a, b) => {
+  //       return a.name < b.name ? 1 : -1;
+  //     });
+  //     setPlayers(newData);
+  //   };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     newPersonScore[newPersonScore.length - 1].point = e.target.point.value;
