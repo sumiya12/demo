@@ -10,6 +10,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { PersonData, Score } from "../types";
 
+
 Chart.register(...registerables, LineElement);
 
 interface Props {
@@ -32,15 +33,15 @@ const LineChart: React.FunctionComponent<Props> = ({ datas }) => {
   > => {
     const labels: string[] = [];
     const dataSets: any[] = [];
-   
+
     datas[0].scores.forEach((each: Score) => {
-        return labels.push(
-          each.date + " Quarter " + each.quarter + " Sprint " + each.sprint
-        );
-      });
-      datas.forEach((person) => {
-      const data: number[] = [];
-    
+      return labels.push(
+        each.date + " Quarter " + each.quarter + " Sprint " + each.sprint
+      );
+    });
+    datas.forEach((person) => {
+      const data: any[] = [];
+
       person.scores.forEach((score: Score) => {
         data.push(score.point);
       });
@@ -50,7 +51,7 @@ const LineChart: React.FunctionComponent<Props> = ({ datas }) => {
         backgroundColor: person.color,
         borderColor: person.color,
         borderWidth: 2,
-        tension: 0.3,
+        tension: 0.4,
       });
     });
     return {
@@ -58,6 +59,7 @@ const LineChart: React.FunctionComponent<Props> = ({ datas }) => {
       datasets: dataSets,
     };
   };
+  console.log(datas);
 
   return (
     <div

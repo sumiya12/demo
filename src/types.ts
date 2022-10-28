@@ -6,8 +6,8 @@ export type PersonData = {
   scores: Score[];
 };
 export interface Score {
-    sprint: string;
-    quarter: string;
+    sprint: number;
+    quarter: number;
     date: string;
-    point: number;
+    point: number | null;
   }

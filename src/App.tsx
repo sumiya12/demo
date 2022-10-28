@@ -1,31 +1,34 @@
 import "./App.css";
-import AddPeople from "./components/AddPeople";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { PersonData, Score } from "./types";
+import { useState, useEffect } from "react";
+import { PersonData } from "./types";
 import LineChart from "./components/LineChart";
+import AddPeople from "./components/AddPeople";
 
 function App() {
-  const [data, setData] = useState<PersonData[]>();
+  const [data, setData] = useState<PersonData[]>([]);
   const fetcher = async () => {
-    const result = await axios.get("test1.json").then((response: any) => {
-      console.log(response.data.data);
-
+    const result = await axios.get("test1.json").then((response :any) => {
       setData(response.data.data);
     });
   };
+  const handleFinish = (newData: PersonData[]) => {
+    setData([...newData]);
+  } 
 
   useEffect(() => {
-    if (!data) fetcher();
+    if (data.length === 0) fetcher();
   }, []);
-
-  console.log(data);
 
   return (
     <div>
-      {data?.length ? <LineChart datas={data} /> : null}
-
-      <AddPeople setData={setData} datas={data} />
+      {data?.length ? (
+        <>
+        
+          <LineChart datas={data} />
+          <AddPeople onFinish={handleFinish} datas={data}/>
+        </>
+      ) : null}
     </div>
   );
 }

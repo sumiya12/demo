@@ -126,48 +126,6 @@
           "quarter": 3,
           "sprint": 3,
           "point": null
-        },
-        {
-          "date": "2022",
-          "quarter": 3,
-          "sprint": 4,
-          "point": null
-        },
-        {
-          "date": "2022",
-          "quarter": 3,
-          "sprint": 5,
-          "point": null
-        },
-        {
-          "date": "2022",
-          "quarter": 4,
-          "sprint": 1,
-          "point": null
-        },
-        {
-          "date": "2022",
-          "quarter": 4,
-          "sprint": 2,
-          "point": null
-        },
-        {
-          "date": "2022",
-          "quarter": 4,
-          "sprint": 3,
-          "point": null
-        },
-        {
-          "date": "2022",
-          "quarter": 4,
-          "sprint": 4,
-          "point": null
-        },
-        {
-          "date": "2022",
-          "quarter": 4,
-          "sprint": 5,
-          "point": null
         }
       ]
     },
